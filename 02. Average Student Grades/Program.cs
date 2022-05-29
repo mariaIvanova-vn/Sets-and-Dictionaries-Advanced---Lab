@@ -8,7 +8,7 @@ namespace _02._Average_Student_Grades
     {
         static void Main(string[] args)
         {
-            var dic = new Dictionary<string, List<decimal>>();
+            var dict = new Dictionary<string, List<decimal>>();
             int n=int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
@@ -16,15 +16,15 @@ namespace _02._Average_Student_Grades
                 string[] input = Console.ReadLine().Split();
                 string name=input[0];   
                 decimal grade=decimal.Parse(input[1]);
-                    if (!dic.ContainsKey(name))
+                    if (!dict.ContainsKey(name))
                     {
-                        dic.Add(name, new List<decimal>());
+                        dict.Add(name, new List<decimal>());
                     }                   
-                     dic[name].Add(grade);                   
+                     dict[name].Add(grade);                   
             }
-            foreach (var item in dic.Keys)
+            foreach (var item in dict.Keys)
             {
-                List<decimal> grades = dic[item];
+                List<decimal> grades = dict[item];
                 string gradesStr = string.Join(" ", grades.Select(g => g.ToString("f2")));
                 decimal avg = grades.Average();
                 Console.WriteLine($"{item} -> {gradesStr} (avg: {avg:f2})");
