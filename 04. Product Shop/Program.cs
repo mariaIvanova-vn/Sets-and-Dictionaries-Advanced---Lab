@@ -8,7 +8,7 @@ namespace _04._Product_Shop
     {
         static void Main(string[] args)
         {
-            var dic = new Dictionary<string, Dictionary<string, double>>();
+            var dict = new Dictionary<string, Dictionary<string, double>>();
             string input=Console.ReadLine();
             while (input!= "Revision")
             {
@@ -16,15 +16,15 @@ namespace _04._Product_Shop
                 string shop=cmd[0]; 
                 string product=cmd[1];  
                 double price=double.Parse(cmd[2]);
-                if (!dic.ContainsKey(shop))
+                if (!dict.ContainsKey(shop))
                 {
-                    dic.Add(shop, new Dictionary<string, double>());
+                    dict.Add(shop, new Dictionary<string, double>());
                 }
-                dic[shop].Add(product, price);  
+                dict[shop].Add(product, price);  
 
                 input = Console.ReadLine();
             }
-            foreach (var shopAndProducts in dic.OrderBy(sp => sp.Key))
+            foreach (var shopAndProducts in dict.OrderBy(sp => sp.Key))
             {
                 string shopName = shopAndProducts.Key;
                 Console.WriteLine(shopName + "->");
