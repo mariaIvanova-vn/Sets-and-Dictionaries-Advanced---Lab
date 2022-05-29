@@ -9,20 +9,20 @@ namespace _01._Count_Same_Values_in_Array
         static void Main(string[] args)
         {
             double[] input=Console.ReadLine().Split().Select(double.Parse).ToArray();
-            var dic=new Dictionary<double,int>();
+            var dict =new Dictionary<double,int>();
 
             foreach (var item in input)
             {
-                if (dic.ContainsKey(item))
+                if (dict.ContainsKey(item))
                 {
-                    dic[item]++;
+                    dict[item]++;
                 }
                 else
                 {
-                    dic[item]=1;
+                    dict[item]=1;
                 }
             }
-            foreach (var item in dic)
+            foreach (var item in dict)
             {
                 Console.WriteLine($"{item.Key} - {item.Value} times");
             }
